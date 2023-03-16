@@ -1,0 +1,24 @@
+{
+  "name": "npm-tutorial",
+  "version": "1.0.0",
+  "description": "npm tutorial for beginners",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "npm",
+    "tutorial",
+    "nodejs"
+  ],
+  "author": "bazoka-kaka",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
