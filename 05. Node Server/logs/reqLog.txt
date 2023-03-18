@@ -1,0 +1,5 @@
+20230320	18:15:26	937bcced-4b68-44c4-8a8a-54b1eafa9c16	/subdir/	GET
+20230320	18:15:26	cbbcbd4d-1440-403e-a854-fcc2bd45858f	/styles/styles.css	GET
+20230320	18:15:32	29180dad-2821-4dba-a86a-1578039b0b75	/	GET
+20230320	18:15:33	c46b1aa3-c68d-4a9c-9aa4-994e59c0a204	/styles/styles.css	GET
+20230320	18:17:43	00fcae3e-4148-4ea0-8bae-0768dc9b37d5	/data/data.json	GET
