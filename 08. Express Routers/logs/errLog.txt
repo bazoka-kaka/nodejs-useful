@@ -1,0 +1,2 @@
+20230320	20:26:17	af1eecb5-e01a-4b19-9a45-d46e5d063cdd	Error: Not allowed by CORS
+20230321	12:39:40	52a5579c-bf93-4bc1-a4f9-04c050211109	ReferenceError: path is not defined
