@@ -1,85 +1,104 @@
-const data = {
-  employees: require("../model/employees"),
+const fs = require("fs");
+const fsPromises = require("fs").promises;
+const path = require("path");
+const employeesDB = {
+  data: require("../data/employees.json"),
   setEmployees: function (data) {
-    this.employees = data;
+    this.data = data;
   },
 };
 
 const getAllEmployees = (req, res) => {
-  res.json(data.employees);
+  res.json(employeesDB.data);
 };
 
-const createNewEmployee = (req, res) => {
+const createNewEmployee = async (req, res) => {
   const newEmployee = {
-    id: data.employees[data.employees.length - 1].id + 1 || 1,
+    id: employeesDB.data[employeesDB.data.length - 1]?.id + 1 || 1,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
   };
-
   if (!newEmployee.firstname || !newEmployee.lastname) {
-    return res
-      .status(400)
-      .json({ message: "First and last names are required." });
+    return res.status(400).json({
+      message: "First and last names are required.",
+    });
   }
+  employeesDB.setEmployees([...employeesDB.data, newEmployee]);
 
-  data.setEmployees([...data.employees, newEmployee]);
+  await fsPromises.writeFile(
+    path.join(__dirname, "..", "data", "employees.json"),
+    JSON.stringify(employeesDB.data)
+  );
 
-  res.status(201).json(data.employees);
+  res.status(201).json(employeesDB.data);
 };
 
-const updateEmployee = (req, res) => {
-  const employee = data.employees.find(
+const updateEmployee = async (req, res) => {
+  const employee = employeesDB.data.find(
     (emp) => emp.id === parseInt(req.body.id)
   );
   if (!employee) {
-    return res
-      .status(404)
-      .json({ message: "Employee with id " + req.body.id + " not found." });
+    return res.status(404).json({
+      message: `Employee ${req.body.id} is not found`,
+    });
   }
   if (req.body.firstname) employee.firstname = req.body.firstname;
   if (req.body.lastname) employee.lastname = req.body.lastname;
-  const filteredArray = data.employees.filter(
+  const filteredEmployees = employeesDB.data.filter(
     (emp) => emp.id !== parseInt(req.body.id)
   );
-  const unsortedArray = [...filteredArray, employee];
-  data.setEmployees(
-    unsortedArray.sort((a, b) => (a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
+  const unsortedEmployees = [...filteredEmployees, employee];
+  const sortedEmployees = unsortedEmployees.sort((a, b) =>
+    a.id > b.id ? 1 : a.id < b.id ? -1 : 0
   );
-  res.json(data.employees);
+  employeesDB.setEmployees(sortedEmployees);
+
+  await fsPromises.writeFile(
+    path.join(__dirname, "..", "data", "employees.json"),
+    JSON.stringify(employeesDB.data)
+  );
+
+  res.json(employeesDB.data);
 };
 
-const deleteEmployee = (req, res) => {
-  const employee = data.employees.find(
+const deleteEmployee = async (req, res) => {
+  const employee = employeesDB.data.find(
     (emp) => emp.id === parseInt(req.body.id)
   );
   if (!employee) {
     return res
       .status(404)
-      .json({ message: "Employee" + req.body.id + " not found." });
+      .json({ message: `Employee ${req.body.id} is not found.` });
   }
-  const filteredArray = data.employees.filter(
+  const filteredEmployees = employeesDB.data.filter(
     (emp) => emp.id !== parseInt(req.body.id)
   );
-  data.setEmployees(filteredArray);
-  res.json(data.employees);
+  employeesDB.setEmployees(filteredEmployees);
+
+  await fsPromises.writeFile(
+    path.join(__dirname, "..", "data", "employees.json"),
+    JSON.stringify(employeesDB.data)
+  );
+
+  res.json(employeesDB.data);
 };
 
 const getEmployee = (req, res) => {
-  const employee = data.employees.find(
+  const employee = employeesDB.data.find(
     (emp) => emp.id === parseInt(req.params.id)
   );
   if (!employee) {
     return res
       .status(404)
-      .json({ message: "Employee " + req.params.id + " not found." });
+      .json({ message: `Employee ${req.params.id} is not found.` });
   }
-  return res.json(employee);
+  res.json(employee);
 };
 
 module.exports = {
   getAllEmployees,
-  getEmployee,
   createNewEmployee,
   updateEmployee,
   deleteEmployee,
+  getEmployee,
 };

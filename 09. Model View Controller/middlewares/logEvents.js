@@ -5,8 +5,8 @@ const path = require("path");
 const fs = require("fs");
 const fsPromises = require("fs").promises;
 
-const logEvents = async (msg, filename) => {
-  const dateTime = `${format(new Date(), "yyyyMMdd\tHH:mm:ss")}`;
+const logEvents = async (msg, fileName) => {
+  const dateTime = `${format(new Date(), "ddMMyyy\tHH:mm:ss")}`;
   const logItem = `${dateTime}\t${uuid()}\t${msg}\n`;
 
   try {
@@ -15,7 +15,7 @@ const logEvents = async (msg, filename) => {
     }
 
     await fsPromises.appendFile(
-      path.join(__dirname, "..", "logs", filename),
+      path.join(__dirname, "..", "logs", fileName),
       logItem
     );
   } catch (err) {
@@ -24,9 +24,9 @@ const logEvents = async (msg, filename) => {
 };
 
 const logger = (req, res, next) => {
+  console.log(req.method, req.url);
   logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, "reqLog.txt");
-  console.log(`${req.method}\t${req.url}\n`);
   next();
 };
 
-module.exports = { logger, logEvents };
+module.exports = { logEvents, logger };

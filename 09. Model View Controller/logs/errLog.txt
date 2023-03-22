@@ -1,4 +1,11 @@
-20230320	20:26:17	af1eecb5-e01a-4b19-9a45-d46e5d063cdd	Error: Not allowed by CORS
-20230321	12:39:40	52a5579c-bf93-4bc1-a4f9-04c050211109	ReferenceError: path is not defined
-20230321	14:56:29	f8539104-1010-48dc-b18d-283f6b7f4b2a	TypeError: employee.filter is not a function
-20230321	15:14:59	d7e77d33-56ec-4fea-9d16-dda528365547	ReferenceError: employees is not defined
+22032023	13:54:33	487b32a4-b9c2-44ec-a555-9fe8bbc1bf7a	Error: Not allowed by CORS
+22032023	13:55:16	a829c5ff-5ec7-4503-93f5-453eab3a9f76	Error: Not allowed by CORS
+22032023	13:57:14	ca9bb435-4e3d-4714-b1cc-4ab01d1ccf91	Error: Not allowed by CORS
+22032023	13:57:36	a9c47d75-c979-4e3e-a6a1-77ee07a7080f	Error: Not allowed by CORS
+22032023	13:57:44	1105f8c8-b4c0-4c80-a1d8-02181a9186ab	Error: Not allowed by CORS
+22032023	14:05:49	4aea215c-475f-4d8f-88ca-5f6eefb40689	Error: ENOENT: no such file or directory, stat 'C:\Users\KAKA\programming\tutorials\nodejs-tutorial-for-beginners\test\routes\views\index.html'
+22032023	14:06:32	12684b32-3816-4c8b-968f-8c128c0aa3fe	Error: ENOENT: no such file or directory, stat 'C:\Users\KAKA\programming\tutorials\nodejs-tutorial-for-beginners\test\routes\views\index.html'
+22032023	14:20:36	c5de3763-0a58-415c-bc9d-502da0b5e1aa	SyntaxError: Unexpected token o in JSON at position 1
+22032023	14:20:44	6c73f14d-d4ba-4564-9d80-241b1e33dcbc	SyntaxError: Unexpected token o in JSON at position 1
+22032023	14:58:08	047ae869-116e-4a2b-869a-b645bdb4e7bf	ReferenceError: data is not defined
+22032023	14:58:35	862a55a1-c553-4887-bb7e-80a5cf889ee6	ReferenceError: data is not defined
