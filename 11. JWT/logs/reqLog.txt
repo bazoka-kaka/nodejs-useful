@@ -1,0 +1,5 @@
+20230323	10:25:00	7fa0107c-d343-4d29-bf46-32c729f00e0a	GET	undefined	/api/employees
+20230323	10:25:04	8d05cbbe-193c-46fe-9cdf-e46f11c10576	GET	undefined	/employees
+20230323	10:25:15	5144153e-a4c0-4b4f-bd79-207455f7a4ce	POST	undefined	/register
+20230323	10:25:21	7cf47953-9ca4-41a5-b427-3f22c9ef6a94	POST	undefined	/auth
+20230323	10:25:33	e243ad90-f479-453d-9bfd-dca3f6747e3d	GET	undefined	/employees
