@@ -46,3 +46,19 @@ Summary
 - client uses to request new access token
 - verified with endpoint & database
 - must be allowed to expire or logged out
+
+## Authorization vs Authentication
+
+- Authentication = the process of verifying who someone is
+- Authorization = the process of verifying what resources a user has access to
+- JSON web tokens:
+  - confirm authentication
+  - allow access to api endpoints
+  - endpoints provide data resources
+  - use authorization header
+
+## User Roles and Permissions
+
+- Provide different levels of access
+- Sent in access token payload
+- Verified with middleware
