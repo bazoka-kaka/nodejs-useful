@@ -1,4 +1,4 @@
-# [Nodejs Tutorial for Beginners](https://www.youtube.com/watch?v=JZXQ455OT3A&list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw)
+# Nodejs Useful Notes
 
 Nodejs is just a javascript that could run on the server, instead of the client's browser
 
@@ -62,3 +62,6 @@ Summary
 - Provide different levels of access
 - Sent in access token payload
 - Verified with middleware
+
+## Sources
+- [Nodejs Tutorial for Beginners](https://www.youtube.com/watch?v=JZXQ455OT3A&list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw)
